@@ -1,0 +1,17 @@
+info:
+  contact: {}
+paths:
+  /v1/status/healthcheck:
+    get:
+      consumes:
+      - '*/*'
+      description: get the status of server.
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+      summary: Show the status of server.
+      tags:
+      - Status
+swagger: "2.0"
