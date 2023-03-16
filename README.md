@@ -19,7 +19,3 @@ This project is a recruitment test
 ![OSX](https://img.shields.io/badge/OSX%20(amd%7Carm)-595959?logo=apple&logoColor=F0F0F0)
 ![Linux](https://img.shields.io/badge/Linux%20(amd%7Carm)-595959?logo=linux&logoColor=F0F0F0)
 ![OpenBSD](https://img.shields.io/badge/OpenBSD%20(amd%7Carm)-595959?logo=openbsd&logoColor=F0F0F0)
-
-Il s'agit d'un petit program de test
-
-# [Documentation](app "FizzBuzz")
