@@ -1,4 +1,4 @@
-// Grouping the data models linked to the fizzbuzz API
+// Package fizzbuzz grouping the data models linked to the fizzbuzz API
 package fizzbuzz
 
 // Request is a struct that represents a FizzBuzz request.

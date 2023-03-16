@@ -1,4 +1,4 @@
-// API Grouping flagged by version number 1
+// Package v1 grouping all API flagged by version number 1
 package v1
 
 import (

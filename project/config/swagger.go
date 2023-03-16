@@ -1,4 +1,4 @@
-// config provides functions/var/const for loading and accessing configuration settings for the application.
+// Package config provides functions/var/const for loading and accessing configuration settings for the application.
 package config
 
 import "github.com/anotherhope/FizzBuzz/project/internal/docs"

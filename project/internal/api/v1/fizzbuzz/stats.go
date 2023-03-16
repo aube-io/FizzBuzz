@@ -1,4 +1,4 @@
-// Implementation of fizzbuzz API
+// package fizzbuzz implementation all handler for FizzBuzz API
 package fizzbuzz
 
 import (
