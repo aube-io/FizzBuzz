@@ -8,7 +8,7 @@ import "github.com/gofiber/fiber/v2"
 // @Accept		*/*
 // @Produce		json
 // @Success		204	{object}	nil
-// @Router		/v1/status/healthcheck [get]
+// @Router		/api/v1/status/healthcheck [get]
 func HealthCheck(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusNoContent).SendString("")
 }

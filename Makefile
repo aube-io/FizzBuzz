@@ -24,12 +24,14 @@ install:
 	go mod vendor
 
 run:
+	make generate certificate > /dev/null
 	make generate swagger > /dev/null
-	go run project/cmd/main.go 
+	go run project/cmd/main.go -t $(GWD)/.build/certs
 
 run-from-docker:
+	make generate swagger > /dev/null
 	make build docker
-	docker run -ti --pid=host aubeio/fizzbuzz:latest
+	docker run -ti --rm --pid=host -p 80:80 -p 443:443 aubeio/fizzbuzz:latest
 
 fix-perms:
 	find $(GWD) -type d -print0 | xargs -0 chmod 0775
