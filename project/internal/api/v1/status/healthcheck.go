@@ -1,4 +1,4 @@
-// Package that represent all mechanisme around status API
+// Implementation of status API
 package status
 
 import "github.com/gofiber/fiber/v2"

@@ -1,4 +1,4 @@
-// Package server provides a simple HTTP/HTTPS server implementation for serving static and connect API.
+// Server provides a simple HTTP/HTTPS server implementation for serving static and connect API.
 package server
 
 import (

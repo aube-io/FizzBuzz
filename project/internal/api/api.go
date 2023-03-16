@@ -1,4 +1,4 @@
-// Package that implement API Register Method for fiber
+// Implement API Register Method for fiber
 package api
 
 import (

@@ -1,4 +1,4 @@
-// Package grouping various libraries
+// Grouping various libraries
 package lib
 
 import (

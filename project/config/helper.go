@@ -1,4 +1,4 @@
-// Package config provides functions/var/const for loading and accessing configuration settings for the application.
+// config provides functions/var/const for loading and accessing configuration settings for the application.
 package config
 
 import (
