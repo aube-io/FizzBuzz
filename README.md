@@ -16,6 +16,7 @@ This project is a recruitment test
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=anotherhope_FizzBuzz&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=anotherhope_FizzBuzz)
 
 
+# Release
 ![OSX](https://img.shields.io/badge/OSX%20(amd%7Carm)-595959?logo=apple&logoColor=F0F0F0)
 ![Linux](https://img.shields.io/badge/Linux%20(amd%7Carm)-595959?logo=linux&logoColor=F0F0F0)
 ![OpenBSD](https://img.shields.io/badge/OpenBSD%20(amd%7Carm)-595959?logo=openbsd&logoColor=F0F0F0)
