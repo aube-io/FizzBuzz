@@ -6,7 +6,7 @@ include $(CURDIR)/../../lib/default.mk
 #╚═══════════════╝#
 ###################
 
-TARGET_OS = "linux" "darwin" "openbsd"
+TARGET_OS = "linux" "darwin"
 TARGET_ARCH = "amd64" "arm64"
 
 current-platform: ## Build project
@@ -22,4 +22,5 @@ cross-platform: ## Build project for defined platform
 		done;                                                                                                           \
 	done;
 
-docker: project ## Build docker images
+docker: ## Build docker images
+	docker build -f $(GWD)/deploy/Dockerfile $(GWD)/.
