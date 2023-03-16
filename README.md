@@ -3,7 +3,7 @@ This project is a recruitment test
 
 # [FizzBuzz](https://anotherhope.github.io/FizzBuzz/) [![Reference](https://pkg.go.dev/badge/github.com/anotherhope/FizzBuzz.svg)](https://pkg.go.dev/github.com/anotherhope/FizzBuzz) [![License](https://img.shields.io:/github/license/anotherhope/FizzBuzz)](https://github.com/anotherhope/FizzBuzz/blob/main/LICENSE.md)
 
-[![Workflow](https://img.shields.io:/github/workflow/status/anotherhope/FizzBuzz/Go)](https://github.com/anotherhope/FizzBuzz/actions/workflows/build.yml)
+[![Workflow](https://img.shields.io/github/actions/workflow/status/anotherhope/FizzBuzz/build.yml)](https://github.com/anotherhope/FizzBuzz/actions/workflows/build.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/anotherhope/FizzBuzz)](https://goreportcard.com/report/github.com/anotherhope/FizzBuzz)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d5102bdf5504b9ce56ce/maintainability)](https://codeclimate.com/github/anotherhope/FizzBuzz/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d5102bdf5504b9ce56ce/test_coverage)](https://codeclimate.com/github/anotherhope/FizzBuzz/test_coverage)
