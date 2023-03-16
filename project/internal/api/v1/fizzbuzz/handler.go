@@ -58,8 +58,6 @@ func FizzBuzz(c *fiber.Ctx) error {
 // If all the parameters are valid, it will create a new FizzBuzz request object with these parameters and store it in the context's
 // UserValue field under the key "fizzbuzz.Request". It then calls the Next() function to pass the context object to the next middleware or handler.
 // If an error occurs at any point, it will return a response with status code 400 and an error message.
-
-// FizzBuzzControls comments
 func FizzBuzzControls(c *fiber.Ctx) error {
 	var errors = map[string]string{}
 
