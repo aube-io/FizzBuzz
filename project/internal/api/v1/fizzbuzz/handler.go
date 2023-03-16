@@ -21,6 +21,17 @@ import (
 // @Failure     400  	string  string
 // @Success		200		{array}  string
 // @Router		/api/v1/fizzbuzz/:int1/:int2/:limit/:str1/:str2 [get]
+//
+// FizzBuzz generates a FizzBuzz sequence based on the values of `Int1`, `Int2`, `Limit`, `Str1`, and `Str2`
+// in the `fizzbuzz.Request` object stored in the request context `c`. The generated sequence is returned as
+// a JSON response.
+//
+// The `Int1` and `Int2` values are used as divisors to determine if a given number is divisible by either one
+// of them or both. If a number is divisible by both, the strings `Str1` and `Str2` are concatenated, otherwise,
+// only the appropriate string is appended to the result slice. If the number is not divisible by either one of
+// the integers, the number is appended as a string to the result slice.
+//
+// The generated FizzBuzz sequence is returned as a JSON response in the same order as it was generated.
 func FizzBuzz(c *fiber.Ctx) error {
 	var fbr fizzbuzz.Request = c.Context().UserValue("fizzbuzz.Request").(fizzbuzz.Request)
 	var result []string
@@ -40,6 +51,14 @@ func FizzBuzz(c *fiber.Ctx) error {
 	return c.JSON(result)
 }
 
+// FizzBuzzControls takes in 5 parameters from a Fiber HTTP Context object: int1, int2, limit, str1, and str2.
+// int1, int2, and limit must be integers, while str1 and str2 can be any string.
+// The function first checks if int1, int2, and limit are valid integers. If any of these parameters are not valid integers,
+// it will return a response with status code 400 and an error message.
+// If int1 or int2 are equal to 0, or if limit is equal to 0, the function will return a response with status code 400 and an error message.
+// If all the parameters are valid, it will create a new FizzBuzz request object with these parameters and store it in the context's
+// UserValue field under the key "fizzbuzz.Request". It then calls the Next() function to pass the context object to the next middleware or handler.
+// If an error occurs at any point, it will return a response with status code 400 and an error message.
 func FizzBuzzControls(c *fiber.Ctx) error {
 	int1, err := strconv.Atoi(c.Params("int1"))
 	if err != nil {

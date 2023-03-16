@@ -1,9 +1,11 @@
+// Package config provides functions/var/const for loading and accessing configuration settings for the application.
 package config
 
 import (
 	"github.com/spf13/cobra"
 )
 
+// Use Cobra package to create a CLI and give Args gesture
 var Helper *cobra.Command = &cobra.Command{
 	Use:                   "fizzbuzz",
 	Short:                 "FizzBuzz API Server",
@@ -18,6 +20,7 @@ var (
 	TLS_KEY_FILE  = "/server.key"
 )
 
+// Initialize Helper
 func init() {
 	Helper.PersistentFlags().BoolVarP(&ENABLE_HTTPS, "enable-https", "S", ENABLE_HTTPS, "Enable HTTPS")
 	Helper.PersistentFlags().StringVarP(&TLS_PATH, "tls", "t", TLS_PATH, "define certificats TLS path")
