@@ -1,3 +1,4 @@
+// Package main is the entry point for the application.
 package main
 
 import (
@@ -11,8 +12,8 @@ import (
 func main() {
 	config.Helper.Run = func(cmd *cobra.Command, args []string) {
 		srv := server.Create()
-		srv.API(v1.STATUS)
-		srv.API(v1.FIZZBUZZ)
+		srv.API(v1.Status)
+		srv.API(v1.Fizzbuzz)
 		srv.Start()
 	}
 

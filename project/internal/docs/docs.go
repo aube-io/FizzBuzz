@@ -83,7 +83,10 @@ const docTemplate = `{
                     "400": {
                         "description": "Bad Request",
                         "schema": {
-                            "type": "string"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         }
                     }
                 }
@@ -138,18 +141,23 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "int1": {
+                    "description": "Int1 is the first integer to be used as a divisor.",
                     "type": "integer"
                 },
                 "int2": {
+                    "description": "Int2 is the second integer to be used as a divisor.",
                     "type": "integer"
                 },
                 "limit": {
+                    "description": "Limit is the maximum number of iterations to perform.",
                     "type": "integer"
                 },
                 "str1": {
+                    "description": "Str1 is the string to print when the current iteration is divisible by Int1.",
                     "type": "string"
                 },
                 "str2": {
+                    "description": "Str2 is the string to print when the current iteration is divisible by Int2.",
                     "type": "string"
                 }
             }
@@ -158,10 +166,16 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "hits": {
+                    "description": "Hits is the number of times the Request has been made.",
                     "type": "integer"
                 },
                 "request": {
-                    "$ref": "#/definitions/fizzbuzz.Request"
+                    "description": "Request is the Request object associated with these statistics.",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/fizzbuzz.Request"
+                        }
+                    ]
                 }
             }
         }
