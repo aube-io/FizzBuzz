@@ -1,6 +1,7 @@
 # WARNING
 This project is a recruitment test
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/04d2d93835794193aee8b1d9badd0977)](https://app.codacy.com/gh/anotherhope/FizzBuzz?utm_source=github.com&utm_medium=referral&utm_content=anotherhope/FizzBuzz&utm_campaign=Badge_Grade_Settings)
 # FizzBuzz [![Reference](https://pkg.go.dev/badge/github.com/anotherhope/FizzBuzz.svg)](https://pkg.go.dev/github.com/anotherhope/FizzBuzz) [![License](https://img.shields.io:/github/license/anotherhope/FizzBuzz)](https://github.com/anotherhope/FizzBuzz/blob/main/LICENSE.md)
 
 [![Workflow](https://img.shields.io/github/actions/workflow/status/anotherhope/FizzBuzz/build.yml)](https://github.com/anotherhope/FizzBuzz/actions/workflows/build.yml)
