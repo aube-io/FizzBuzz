@@ -1,13 +1,14 @@
-FROM golang:alpine as builder
-
-RUN apk update && apk upgrade
-RUN apk add make git
+FROM alpine:latest AS builder
+RUN apk add --no-cache go ca-certificates make git alpine-sdk
 
 WORKDIR /project
 COPY / /project
 
+RUN make generate certificate
 RUN make build current-platform
 
 FROM scratch as runner
-COPY --from=builder /project/.build/fizzbuzz /fizzbuzz
-ENTRYPOINT [ "/fizzbuzz" ]
+WORKDIR /var/run
+COPY --from=builder /project/.build/bin/fizzbuzz /var/run/fizzbuzz
+COPY --from=builder /project/.build/certs 		 /var/run/certs
+ENTRYPOINT [ "/var/run/fizzbuzz" ]

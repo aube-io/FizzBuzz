@@ -1,7 +1,7 @@
 # WARNING
 This project is a recruitment test 
 
-# FizzBuzz [![Reference](https://pkg.go.dev/badge/github.com/anotherhope/FizzBuzz.svg)](https://pkg.go.dev/github.com/anotherhope/FizzBuzz) [![License](https://img.shields.io:/github/license/anotherhope/FizzBuzz)](https://github.com/anotherhope/FizzBuzz/blob/main/LICENSE.md)
+# FizzBuzz [![Reference](https://pkg.go.dev/badge/github.com/anotherhope/FizzBuzz.svg)](https://pkg.go.dev/github.com/anotherhope/FizzBuzz) [![License](https://img.shields.io:/github/license/anotherhope/FizzBuzz)](https://github.com/anotherhope/FizzBuzz/blob/main/LICENSE.md) [![Docker](https://img.shields.io/docker/image-size/aubeio/fizzbuzz/latest)](https://hub.docker.com/r/aubeio/fizzbuzz)
 
 [![Workflow](https://img.shields.io/github/actions/workflow/status/anotherhope/FizzBuzz/build.yml)](https://github.com/anotherhope/FizzBuzz/actions/workflows/build.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/anotherhope/FizzBuzz)](https://goreportcard.com/report/github.com/anotherhope/FizzBuzz)
@@ -20,4 +20,3 @@ This project is a recruitment test
 # Release
 ![OSX](https://img.shields.io/badge/OSX%20(amd%7Carm)-595959?logo=apple&logoColor=F0F0F0)
 ![Linux](https://img.shields.io/badge/Linux%20(amd%7Carm)-595959?logo=linux&logoColor=F0F0F0)
-![OpenBSD](https://img.shields.io/badge/OpenBSD%20(amd%7Carm)-595959?logo=openbsd&logoColor=F0F0F0)
