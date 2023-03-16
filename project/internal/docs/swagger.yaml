@@ -1,6 +1,97 @@
+definitions:
+  fizzbuzz.Request:
+    properties:
+      int1:
+        type: integer
+      int2:
+        type: integer
+      limit:
+        type: integer
+      str1:
+        type: string
+      str2:
+        type: string
+    type: object
+  fizzbuzz.Stats:
+    properties:
+      hits:
+        type: integer
+      request:
+        $ref: '#/definitions/fizzbuzz.Request'
+    type: object
 info:
   contact: {}
 paths:
+  /api/v1/fizzbuzz/:int1/:int2/:limit/:str1/:str2:
+    get:
+      consumes:
+      - '*/*'
+      description: 'Returns a list of strings with numbers from 1 to limit, where:
+        \n all multiples of int1 are replaced by str1, all multiples of int2 are replaced
+        by str2, all multiples of int1 and int2 are replaced by str1str2.'
+      parameters:
+      - default: 3
+        description: Give the first number
+        in: path
+        name: int1
+        required: true
+        type: integer
+      - default: 5
+        description: Give the second number
+        in: path
+        name: int2
+        required: true
+        type: integer
+      - default: 100
+        description: Give limit of fizzbuzz
+        in: path
+        name: limit
+        required: true
+        type: integer
+      - default: fizz
+        description: Give the first word
+        in: path
+        name: str1
+        required: true
+        type: string
+      - default: buzz
+        description: Give the second word
+        in: path
+        name: str2
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+      summary: Return FizzBuzz result.
+      tags:
+      - FizzBuzz
+  /api/v1/fizzbuzz/stats:
+    get:
+      consumes:
+      - '*/*'
+      description: Return the parameters corresponding to the most used request, as
+        well as the number of hits for this request.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/fizzbuzz.Stats'
+      summary: Return FizzBuzz statistics.
+      tags:
+      - FizzBuzz
   /api/v1/status/healthcheck:
     get:
       consumes:

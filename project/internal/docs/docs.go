@@ -15,6 +15,103 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/v1/fizzbuzz/:int1/:int2/:limit/:str1/:str2": {
+            "get": {
+                "description": "Returns a list of strings with numbers from 1 to limit, where: \\n all multiples of int1 are replaced by str1, all multiples of int2 are replaced by str2, all multiples of int1 and int2 are replaced by str1str2.",
+                "consumes": [
+                    "*/*"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "FizzBuzz"
+                ],
+                "summary": "Return FizzBuzz result.",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "default": 3,
+                        "description": "Give the first number",
+                        "name": "int1",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "default": 5,
+                        "description": "Give the second number",
+                        "name": "int2",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "default": 100,
+                        "description": "Give limit of fizzbuzz",
+                        "name": "limit",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "default": "fizz",
+                        "description": "Give the first word",
+                        "name": "str1",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "default": "buzz",
+                        "description": "Give the second word",
+                        "name": "str2",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/fizzbuzz/stats": {
+            "get": {
+                "description": "Return the parameters corresponding to the most used request, as well as the number of hits for this request.",
+                "consumes": [
+                    "*/*"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "FizzBuzz"
+                ],
+                "summary": "Return FizzBuzz statistics.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/fizzbuzz.Stats"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/status/healthcheck": {
             "get": {
                 "description": "get the status of server.",
@@ -32,6 +129,39 @@ const docTemplate = `{
                     "204": {
                         "description": "No Content"
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "fizzbuzz.Request": {
+            "type": "object",
+            "properties": {
+                "int1": {
+                    "type": "integer"
+                },
+                "int2": {
+                    "type": "integer"
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "str1": {
+                    "type": "string"
+                },
+                "str2": {
+                    "type": "string"
+                }
+            }
+        },
+        "fizzbuzz.Stats": {
+            "type": "object",
+            "properties": {
+                "hits": {
+                    "type": "integer"
+                },
+                "request": {
+                    "$ref": "#/definitions/fizzbuzz.Request"
                 }
             }
         }
