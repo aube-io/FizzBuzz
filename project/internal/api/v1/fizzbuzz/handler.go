@@ -52,13 +52,7 @@ func FizzBuzz(c *fiber.Ctx) error {
 }
 
 // FizzBuzzControls takes in 5 parameters from a Fiber HTTP Context object: int1, int2, limit, str1, and str2.
-// int1, int2, and limit must be integers, while str1 and str2 can be any string.
-// The function first checks if int1, int2, and limit are valid integers. If any of these parameters are not valid integers,
-// it will return a response with status code 400 and an error message.
-// If int1 or int2 are equal to 0, or if limit is equal to 0, the function will return a response with status code 400 and an error message.
-// If all the parameters are valid, it will create a new FizzBuzz request object with these parameters and store it in the context's
-// UserValue field under the key "fizzbuzz.Request". It then calls the Next() function to pass the context object to the next middleware or handler.
-// If an error occurs at any point, it will return a response with status code 400 and an error message.
+// The function first checks if int1, int2, and limit are valid integers and if str1, str2 are valid string
 func FizzBuzzControls(c *fiber.Ctx) error {
 	int1, err := strconv.Atoi(c.Params("int1"))
 	if err != nil {
