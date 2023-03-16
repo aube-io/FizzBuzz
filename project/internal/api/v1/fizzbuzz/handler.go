@@ -59,7 +59,7 @@ func FizzBuzz(c *fiber.Ctx) error {
 // UserValue field under the key "fizzbuzz.Request". It then calls the Next() function to pass the context object to the next middleware or handler.
 // If an error occurs at any point, it will return a response with status code 400 and an error message.
 func FizzBuzzControls(c *fiber.Ctx) error {
-	var errors map[string]string = map[string]string{}
+	var errors = map[string]string{}
 
 	int1, err := strconv.Atoi(c.Params("int1"))
 	if err != nil {
