@@ -1,0 +1,38 @@
+name: Coverage
+
+on: [push]
+
+permissions:
+  contents: write
+
+jobs:
+
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+       fetch-depth: 0
+       
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: 1.19
+
+    - name: Install/Update vendor
+      run: make update
+
+    - name: Generate coverage report
+      run: |
+        go test `go list ./... | grep -v examples` -coverprofile=coverage.txt -covermode=atomic
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: "c3cf916a-e97d-4a35-91c1-383631c8524c"
+        file: ./coverage.txt
+        flags: unittests # optional
+        name: codecov-umbrella # optional
+        fail_ci_if_error: true # optional (default = false)
+        verbose: true # optional (default = false)
