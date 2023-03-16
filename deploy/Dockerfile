@@ -1,4 +1,4 @@
-FROM alpine AS builder
+FROM alpine:edge AS builder
 RUN apk add --no-cache go ca-certificates make git alpine-sdk
 
 WORKDIR /project
