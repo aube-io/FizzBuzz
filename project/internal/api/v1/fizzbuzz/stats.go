@@ -1,4 +1,4 @@
-// package fizzbuzz implementation all handler for FizzBuzz API
+// Package fizzbuzz implementation all handler for FizzBuzz API
 package fizzbuzz
 
 import (
@@ -11,15 +11,6 @@ import (
 var statistics = make(map[fizzbuzz.Request]uint)
 var mutex = &sync.Mutex{}
 
-// @Summary		Return FizzBuzz statistics.
-// @Description	Return the parameters corresponding to the most used request, as well as the number of hits for this request.
-// @Tags		FizzBuzz
-// @Accept		*/*
-// @Produce		json
-// @Help		Name    ?        type    required   description
-// @Success		200		{object}  fizzbuzz.Stats
-// @Router		/api/v1/fizzbuzz/stats [get]
-//
 // Stats is an HTTP handler function that returns statistics about the most frequently requested
 // FizzBuzz endpoint. It retrieves the statistics from a shared global map that is updated by the
 // "FizzBuzzHits" function. The statistics include the FizzBuzz request parameters that were used
@@ -30,6 +21,14 @@ var mutex = &sync.Mutex{}
 //
 // Returns:
 // - an error value, which is typically nil, since there is no meaningful error condition for this endpoint.
+// @Summary		Return FizzBuzz statistics.
+// @Description	Return the parameters corresponding to the most used request, as well as the number of hits for this request.
+// @Tags		FizzBuzz
+// @Accept		*/*
+// @Produce		json
+// @Help		Name    ?        type    required   description
+// @Success		200		{object}  fizzbuzz.Stats
+// @Router		/api/v1/fizzbuzz/stats [get]
 func Stats(c *fiber.Ctx) error {
 	mutex.Lock()
 	defer mutex.Unlock()
