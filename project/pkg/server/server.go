@@ -28,5 +28,5 @@ func (server *Server) http() {
 }
 
 func (server *Server) https() {
-	exit.WithCriticalError(server.app.ListenTLS(":443", pwd()+certFile, pwd()+keyFile))
+	exit.WithCriticalError(server.app.ListenTLS(":443", certFile, keyFile))
 }

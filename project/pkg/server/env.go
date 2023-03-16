@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	certFile = "/certs/server.crt"
-	keyFile  = "/certs/server.key"
+	certFile = "/etc/ssl/certs/server.crt"
+	keyFile  = "/etc/ssl/certs/server.key"
 )
 
 func pwd() string {
