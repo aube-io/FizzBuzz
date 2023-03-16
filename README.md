@@ -6,7 +6,7 @@ This project is a recruitment test
 [![Workflow](https://img.shields.io:/github/workflow/status/anotherhope/FizzBuzz/Go)](https://github.com/anotherhope/FizzBuzz/actions/workflows/go.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/anotherhope/FizzBuzz)](https://goreportcard.com/report/github.com/anotherhope/FizzBuzz)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d5102bdf5504b9ce56ce/maintainability)](https://codeclimate.com/github/anotherhope/FizzBuzz/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d5102bdf5504b9ce56ce/test_coverage)](https://codeclimate.com/github/anotherhope/rcloud/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d5102bdf5504b9ce56ce/test_coverage)](https://codeclimate.com/github/anotherhope/FizzBuzz/test_coverage)
 
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=anotherhope_FizzBuzz&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=anotherhope_FizzBuzz)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=anotherhope_FizzBuzz&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=anotherhope_FizzBuzz)
