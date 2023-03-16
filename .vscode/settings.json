@@ -3,5 +3,5 @@
 		".github": false,
 		"vendor": true,
 		".vscode/": false
-    },
+    }
 }

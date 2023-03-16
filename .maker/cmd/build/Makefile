@@ -6,7 +6,7 @@ include $(CURDIR)/../../lib/default.mk
 #╚═══════════════╝#
 ###################
 
-TARGET_OS = "linux" "darwin"
+TARGET_OS = "linux" "darwin" "openbsd"
 TARGET_ARCH = "amd64" "arm64"
 
 current-platform: ## Build project
