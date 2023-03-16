@@ -8,7 +8,7 @@ RUN echo "nobody:x:65534:65534:Nobody:/:" > .build/passwd
 RUN make generate certificate
 RUN make build current-platform
 
-FROM scratch as runner
+FROM scratch AS runner
 
 WORKDIR /var/run
 COPY --from=builder --chown=nobody:nobody /project/.build/bin/fizzbuzz /var/run/fizzbuzz
