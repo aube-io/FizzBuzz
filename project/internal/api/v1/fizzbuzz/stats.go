@@ -55,6 +55,7 @@ func Stats(c *fiber.Ctx) error {
 // - c: a pointer to the fiber.Ctx object representing the HTTP request context.
 // Returns:
 // - an error value, which is typically nil, since there is no meaningful error condition for this endpoint.
+// FizzBuzzHits comments
 func FizzBuzzHits(c *fiber.Ctx) error {
 	mutex.Lock()
 	defer mutex.Unlock()
