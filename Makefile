@@ -27,6 +27,10 @@ run:
 	make generate swagger > /dev/null
 	go run project/cmd/main.go 
 
+run-from-docker:
+	make build docker
+	docker run -ti --pid=host aubeio/fizzbuzz:latest
+
 fix-perms:
 	find $(GWD) -type d -print0 | xargs -0 chmod 0775
 	find $(GWD) -type f -print0 | xargs -0 chmod 0664
