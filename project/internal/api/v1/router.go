@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"github.com/anotherhope/FizzBuzz/project/api"
-	"github.com/anotherhope/FizzBuzz/project/api/v1/status"
+	"github.com/anotherhope/FizzBuzz/project/internal/api"
+	"github.com/anotherhope/FizzBuzz/project/internal/api/v1/status"
 	"github.com/gofiber/fiber/v2"
 )
 

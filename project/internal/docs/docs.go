@@ -15,7 +15,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/v1/status/healthcheck": {
+        "/api/v1/status/healthcheck": {
             "get": {
                 "description": "get the status of server.",
                 "consumes": [

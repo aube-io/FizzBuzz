@@ -1,7 +1,7 @@
 info:
   contact: {}
 paths:
-  /v1/status/healthcheck:
+  /api/v1/status/healthcheck:
     get:
       consumes:
       - '*/*'
