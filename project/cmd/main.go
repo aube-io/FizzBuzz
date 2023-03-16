@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/anotherhope/FizzBuzz/project/config"
 	v1 "github.com/anotherhope/FizzBuzz/project/internal/api/v1"
-	"github.com/anotherhope/FizzBuzz/project/internal/exit"
+	"github.com/anotherhope/FizzBuzz/project/internal/lib"
 	"github.com/anotherhope/FizzBuzz/project/pkg/server"
 	"github.com/spf13/cobra"
 )
@@ -17,6 +17,6 @@ func main() {
 	}
 
 	if err := config.Helper.Execute(); err != nil {
-		exit.WithCriticalError(err)
+		lib.WithCriticalError(err)
 	}
 }

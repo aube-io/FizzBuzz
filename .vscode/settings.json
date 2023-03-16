@@ -1,9 +1,9 @@
 {
-    "files.exclude": {
+	"files.exclude": {
 		".github": false,
 		"vendor": true,
 		".maker": true,
 		".build": true,
 		".vscode/": false
-    }
+	}
 }
