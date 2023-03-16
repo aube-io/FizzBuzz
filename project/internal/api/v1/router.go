@@ -1,3 +1,4 @@
+// Package thats represente the v1 API
 package v1
 
 import (

@@ -18,7 +18,9 @@ type Server struct {
 
 func (server *Server) Start() {
 	go server.http()
-	go server.https()
+	if config.EnableHTTPS {
+		go server.https()
+	}
 
 	os.Exit(lib.WaitStatus())
 }
@@ -42,5 +44,5 @@ func (server *Server) http() {
 }
 
 func (server *Server) https() {
-	lib.WithCriticalError(server.app.ListenTLS(":443", config.TLS_PATH+config.TLS_CERT_FILE, config.TLS_PATH+config.TLS_KEY_FILE))
+	lib.WithCriticalError(server.app.ListenTLS(":443", config.TLSPath+config.TLSCertFile, config.TLSPath+config.TLSKeyFile))
 }

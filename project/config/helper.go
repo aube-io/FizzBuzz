@@ -5,7 +5,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// Use Cobra package to create a CLI and give Args gesture
+// Helper use Cobra package to create a CLI and give Args gesture
 var Helper *cobra.Command = &cobra.Command{
 	Use:                   "fizzbuzz",
 	Short:                 "FizzBuzz API Server",
@@ -13,17 +13,24 @@ var Helper *cobra.Command = &cobra.Command{
 	DisableFlagsInUseLine: true,
 }
 
+// Declaration of multiple variables used to configure an HTTP application.
 var (
-	ENABLE_HTTPS  = false
-	TLS_PATH      = "/etc/ssl/certs"
-	TLS_CERT_FILE = "/server.crt"
-	TLS_KEY_FILE  = "/server.key"
+	// EnableHTTPS is a boolean variable that indicates whether HTTPS is enabled or not for the application.
+	// If set to true, it means the application uses HTTPS for all HTTP connections.
+	// Otherwise, it's set to false and the application uses HTTP.
+	EnableHTTPS = false
+	// TLSPath is a string variable that specifies the absolute path to the directory where SSL certificates are stored.
+	TLSPath = "/etc/ssl/certs"
+	// TLSCertFile is a string variable that specifies the filename for the SSL certificate used to establish HTTPS connections.
+	TLSCertFile = "/server.crt"
+	// TLSKeyFile is a string variable that specifies the filename for the SSL private key used to establish HTTPS connections.
+	TLSKeyFile = "/server.key"
 )
 
 // Initialize Helper
 func init() {
-	Helper.PersistentFlags().BoolVarP(&ENABLE_HTTPS, "enable-https", "S", ENABLE_HTTPS, "Enable HTTPS")
-	Helper.PersistentFlags().StringVarP(&TLS_PATH, "tls", "t", TLS_PATH, "define certificats TLS path")
-	Helper.PersistentFlags().StringVarP(&TLS_CERT_FILE, "cert", "c", TLS_CERT_FILE, "define certificats CERT name")
-	Helper.PersistentFlags().StringVarP(&TLS_KEY_FILE, "key", "k", TLS_KEY_FILE, "define certificats KEY name")
+	Helper.PersistentFlags().BoolVarP(&EnableHTTPS, "enable-https", "S", EnableHTTPS, "Enable HTTPS")
+	Helper.PersistentFlags().StringVarP(&TLSPath, "tls", "t", TLSPath, "define certificats TLS path")
+	Helper.PersistentFlags().StringVarP(&TLSCertFile, "cert", "c", TLSCertFile, "define certificats CERT name")
+	Helper.PersistentFlags().StringVarP(&TLSKeyFile, "key", "k", TLSKeyFile, "define certificats KEY name")
 }

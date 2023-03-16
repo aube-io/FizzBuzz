@@ -1,3 +1,4 @@
+// Package that represent all mechanisme around fizzbuzz API
 package fizzbuzz
 
 import (
