@@ -1,26 +1,27 @@
+// Package Server HTTP/HTTPS
 package server
 
 import (
 	"fmt"
 	"os"
 
-	"github.com/anotherhope/FizzBuzz/project/config"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/swagger"
 )
 
 var server *Server
 
+// Create return a instance os Server
+// Pattern Singleton
 func Create() *Server {
 	if server == nil {
 		config := fiber.Config{
-			AppName: config.HOSTNAME,
-			Prefork: true,
+			Prefork: true, // Multithreading
 		}
 
 		if os.Getppid() <= 1 {
 			fmt.Println("WARNING: fiber in downgrade mode please use docker run --pid=host")
-			config.Prefork = false
+			config.Prefork = false // Disable to prevent bug in container
 		}
 
 		app := fiber.New(config)
@@ -31,14 +32,15 @@ func Create() *Server {
 			versions: make(map[string]fiber.Router),
 		}
 
-		server.app.Use(setSecurityHeaders)
-		server.app.Get("/docs/*", swagger.HandlerDefault)
-		server.app.Group("/api", setRedirectOnEntryPointAPI)
+		server.app.Use(setSecurityHeaders)                   // register middleware setSecurityHeaders
+		server.app.Get("/docs/*", swagger.HandlerDefault)    // register middleware for documentation
+		server.app.Group("/api", setRedirectOnEntryPointAPI) // entrypoint of the API but display we need to documentation
 	}
 
 	return server
 }
 
+// setRedirectOnEntryPointAPI is a middleware that redirect to /docs url path is like /api(?/)
 func setRedirectOnEntryPointAPI(c *fiber.Ctx) error {
 	if c.Path() == "/api" || c.Path() == "/api/" {
 		return c.Redirect("/docs")
@@ -46,6 +48,7 @@ func setRedirectOnEntryPointAPI(c *fiber.Ctx) error {
 	return c.Next()
 }
 
+// setSecurityHeaders is a middleware that grants best practice around security
 func setSecurityHeaders(c *fiber.Ctx) error {
 	// Activer HSTS (HTTP Strict Transport Security)
 	c.Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")

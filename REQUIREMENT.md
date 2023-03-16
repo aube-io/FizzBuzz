@@ -9,5 +9,6 @@ Afin de profiter plainement des snippets mis en place sur le projet il est néc�
 1. Installation des différents outils
 	- `$ ${PKG_MNGR} install git` pour avoir accès aux repository git
 	- `$ ${PKG_MNGR} install make` pour l'utilisation des makefiles
+	- `$ ${PKG_MNGR} install go` pour le projet
 	- `$ ${PKG_MNGR} install glow` pour observer les documentations dans le terminal
 	- `$ ${PKG_MNGR} install docker` pour utiliser les container dans le cadre du projet

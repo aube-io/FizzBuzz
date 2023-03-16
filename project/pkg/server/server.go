@@ -1,3 +1,4 @@
+// Package Server HTTP/HTTPS
 package server
 
 import (
@@ -5,13 +6,8 @@ import (
 
 	"github.com/anotherhope/FizzBuzz/project/config"
 	"github.com/anotherhope/FizzBuzz/project/internal/api"
-	"github.com/anotherhope/FizzBuzz/project/internal/exit"
+	"github.com/anotherhope/FizzBuzz/project/internal/lib"
 	"github.com/gofiber/fiber/v2"
-)
-
-const (
-	certFile = "/server.crt"
-	keyFile  = "/server.key"
 )
 
 type Server struct {
@@ -24,7 +20,7 @@ func (server *Server) Start() {
 	go server.http()
 	go server.https()
 
-	os.Exit(exit.WaitStatus())
+	os.Exit(lib.WaitStatus())
 }
 
 func (server *Server) API(api *api.API) {
@@ -42,9 +38,9 @@ func (server *Server) version(api *api.API) fiber.Router {
 }
 
 func (server *Server) http() {
-	exit.WithCriticalError(server.app.Listen(":80"))
+	lib.WithCriticalError(server.app.Listen(":80"))
 }
 
 func (server *Server) https() {
-	exit.WithCriticalError(server.app.ListenTLS(":443", config.TLS_PATH+config.TLS_CERT_FILE, config.TLS_PATH+config.TLS_KEY_FILE))
+	lib.WithCriticalError(server.app.ListenTLS(":443", config.TLS_PATH+config.TLS_CERT_FILE, config.TLS_PATH+config.TLS_KEY_FILE))
 }
