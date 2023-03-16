@@ -51,10 +51,8 @@ func Stats(c *fiber.Ctx) error {
 // with information about the current request. It retrieves the FizzBuzz request parameters from the
 // user value stored in the request context, increments the corresponding hit counter in the statistics
 // map, and then passes the request on to the next middleware or endpoint handler.
-//
 // Parameters:
 // - c: a pointer to the fiber.Ctx object representing the HTTP request context.
-//
 // Returns:
 // - an error value, which is typically nil, since there is no meaningful error condition for this endpoint.
 func FizzBuzzHits(c *fiber.Ctx) error {
