@@ -43,7 +43,7 @@ func Create() *Server {
 // setRedirectOnEntryPointAPI is a middleware that redirect to /docs url path is like /api(?/)
 func setRedirectOnEntryPointAPI(c *fiber.Ctx) error {
 	if c.Path() == "/api" || c.Path() == "/api/" {
-		return c.Redirect("/docs")
+		return c.Redirect("/docs", 301)
 	}
 	return c.Next()
 }
