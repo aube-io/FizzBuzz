@@ -11,12 +11,10 @@ import (
 // FizzBuzz generates a FizzBuzz sequence based on the values of `Int1`, `Int2`, `Limit`, `Str1`, and `Str2`
 // in the `fizzbuzz.Request` object stored in the request context `c`. The generated sequence is returned as
 // a JSON response.
-//
 // The `Int1` and `Int2` values are used as divisors to determine if a given number is divisible by either one
 // of them or both. If a number is divisible by both, the strings `Str1` and `Str2` are concatenated, otherwise,
 // only the appropriate string is appended to the result slice. If the number is not divisible by either one of
 // the integers, the number is appended as a string to the result slice.
-//
 // The generated FizzBuzz sequence is returned as a JSON response in the same order as it was generated.
 // @Summary		Return FizzBuzz result.
 // @Description	Returns a list of strings with numbers from 1 to limit, where: \n all multiples of int1 are replaced by str1, all multiples of int2 are replaced by str2, all multiples of int1 and int2 are replaced by str1str2.
