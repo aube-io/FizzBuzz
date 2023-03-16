@@ -1,7 +1,7 @@
 # WARNING
 This project is a recruitment test
 
-# [FizzBuzz] [![Reference](https://pkg.go.dev/badge/github.com/anotherhope/FizzBuzz.svg)](https://pkg.go.dev/github.com/anotherhope/FizzBuzz) [![License](https://img.shields.io:/github/license/anotherhope/FizzBuzz)](https://github.com/anotherhope/FizzBuzz/blob/main/LICENSE.md)
+# FizzBuzz [![Reference](https://pkg.go.dev/badge/github.com/anotherhope/FizzBuzz.svg)](https://pkg.go.dev/github.com/anotherhope/FizzBuzz) [![License](https://img.shields.io:/github/license/anotherhope/FizzBuzz)](https://github.com/anotherhope/FizzBuzz/blob/main/LICENSE.md)
 
 [![Workflow](https://img.shields.io/github/actions/workflow/status/anotherhope/FizzBuzz/build.yml)](https://github.com/anotherhope/FizzBuzz/actions/workflows/build.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/anotherhope/FizzBuzz)](https://goreportcard.com/report/github.com/anotherhope/FizzBuzz)
