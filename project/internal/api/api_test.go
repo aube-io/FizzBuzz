@@ -9,33 +9,35 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func TestAPI_Register(t *testing.T) {
+func TestRegister(t *testing.T) {
 	// Create a new instance of API
-	api_test := &API{
+	const Users = "/users"
+	const Api = "/api" + Users
+	apiTest := &API{
 		Namespace: "test",
 		Version:   "v1",
 		Get: map[string][]fiber.Handler{
-			"/users": {func(c *fiber.Ctx) error {
+			Users: {func(c *fiber.Ctx) error {
 				return c.SendString("GET /users")
 			}},
 		},
 		Post: map[string][]fiber.Handler{
-			"/users": {func(c *fiber.Ctx) error {
+			Users: {func(c *fiber.Ctx) error {
 				return c.SendString("POST /users")
 			}},
 		},
 		Put: map[string][]fiber.Handler{
-			"/users/:id": {func(c *fiber.Ctx) error {
+			Users + "/:id": {func(c *fiber.Ctx) error {
 				return c.SendString("PUT /users/:id")
 			}},
 		},
 		Patch: map[string][]fiber.Handler{
-			"/users/:id": {func(c *fiber.Ctx) error {
+			Users + "/:id": {func(c *fiber.Ctx) error {
 				return c.SendString("PATCH /users/:id")
 			}},
 		},
 		Delete: map[string][]fiber.Handler{
-			"/users/:id": {func(c *fiber.Ctx) error {
+			Users + "/:id": {func(c *fiber.Ctx) error {
 				return c.SendString("DELETE /users/:id")
 			}},
 		},
@@ -43,7 +45,7 @@ func TestAPI_Register(t *testing.T) {
 
 	// Create a new router and register the API
 	router := fiber.New()
-	api_test.Register(router.Group("api"))
+	apiTest.Register(router.Group("api"))
 
 	// Test each endpoint using HTTP requests
 	testCases := []struct {
@@ -52,11 +54,11 @@ func TestAPI_Register(t *testing.T) {
 		body   string
 		want   string
 	}{
-		{"GET", "/api/users", "", "GET /users"},
-		{"POST", "/api/users", "", "POST /users"},
-		{"PUT", "/api/users/123", "", "PUT /users/:id"},
-		{"PATCH", "/api/users/123", "", "PATCH /users/:id"},
-		{"DELETE", "/api/users/123", "", "DELETE /users/:id"},
+		{"GET", Api, "", "GET /users"},
+		{"POST", Api, "", "POST /users"},
+		{"PUT", Api + "/123", "", "PUT /users/:id"},
+		{"PATCH", Api + "/123", "", "PATCH /users/:id"},
+		{"DELETE", Api + "/123", "", "DELETE /users/:id"},
 	}
 
 	for _, tc := range testCases {
