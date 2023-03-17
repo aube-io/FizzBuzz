@@ -38,12 +38,3 @@ jobs:
         name: codecov-umbrella # optional
         fail_ci_if_error: true # optional (default = false)
         verbose: true # optional (default = false)
-
-    - name: Test & publish code coverage
-      uses: paambaati/codeclimate-action@v3.2.0
-      env:
-        CC_TEST_REPORTER_ID:  ${{ secrets.CC_TOKEN }}
-      with:
-        coverageCommand: go test `go list ./... | grep -v examples` -coverprofile=coverage.out && gocov convert c.out | gocov annotate -
-        debug: true
-
