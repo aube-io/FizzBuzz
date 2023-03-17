@@ -32,12 +32,21 @@ func Create() *Server {
 			versions: make(map[string]fiber.Router),
 		}
 
+		server.app.Use(setGoToDoc)                           // register middleware setGoToDoc
 		server.app.Use(setSecurityHeaders)                   // register middleware setSecurityHeaders
 		server.app.Get("/docs/*", swagger.HandlerDefault)    // register middleware for documentation
 		server.app.Group("/api", setRedirectOnEntryPointAPI) // entrypoint of the API but display we need to documentation
 	}
 
 	return server
+}
+
+// setGoToDoc is a middleware that redirect to /docs url path is like /
+func setGoToDoc(c *fiber.Ctx) error {
+	if c.Path() == "/index.html" {
+		return c.Redirect("/docs", 301)
+	}
+	return c.Next()
 }
 
 // setRedirectOnEntryPointAPI is a middleware that redirect to /docs url path is like /api(?/)
