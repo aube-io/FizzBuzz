@@ -26,6 +26,17 @@ func TestSetRedirectOnEntryPointAPI(t *testing.T) {
 	assert.Equal(t, "/docs", resp.Header.Get("Location"))
 }
 
+func TestSetGoToDoc(t *testing.T) {
+	app := fiber.New()
+	app.Use(setGoToDoc)
+
+	req := httptest.NewRequest(http.MethodGet, "/index.html", nil)
+	resp, err := app.Test(req)
+	assert.NoError(t, err)
+	assert.Equal(t, http.StatusMovedPermanently, resp.StatusCode)
+	assert.Equal(t, "/docs", resp.Header.Get("Location"))
+}
+
 func TestSetSecurityHeaders(t *testing.T) {
 	app := fiber.New()
 	app.Use(setSecurityHeaders)
