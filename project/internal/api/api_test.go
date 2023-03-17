@@ -1,7 +1,7 @@
 package api
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -70,7 +70,7 @@ func TestRegister(t *testing.T) {
 		if resp.StatusCode != http.StatusOK {
 			t.Errorf("TestAPI_Register: unexpected status code %d", resp.StatusCode)
 		}
-		body, err := ioutil.ReadAll(resp.Body)
+		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			t.Fatalf("TestAPI_Register: %v", err)
 		}
