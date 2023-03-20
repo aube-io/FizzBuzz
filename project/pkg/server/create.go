@@ -43,7 +43,7 @@ func Create() *Server {
 
 // setGoToDoc is a middleware that redirect to /docs url path is like /
 func setGoToDoc(c *fiber.Ctx) error {
-	if c.Path() == "/index.html" {
+	if c.Path() == "/index.html" || c.Path() == "/" {
 		return c.Redirect("/docs", 301)
 	}
 	return c.Next()
